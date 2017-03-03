@@ -6,10 +6,6 @@ import android.support.design.widget.CoordinatorLayout;
 import android.util.AttributeSet;
 import android.view.View;
 
-/**
- * Created by yifeng on 16/9/23.
- *
- */
 
 public class CustomExpandBehavior extends CoordinatorLayout.Behavior {
 

@@ -7,10 +7,6 @@ import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.View;
 
-/**
- * Created by yifeng on 16/8/23.
- *
- */
 public class NestedFABBehavior extends FloatingActionButton.Behavior {
 
     public NestedFABBehavior(Context context, AttributeSet attrs) {

@@ -24,7 +24,6 @@ public class GirlsAdapter extends RecyclerView.Adapter<GirlsAdapter.ViewHolder> 
     private Context mContext;
 
     private List<GirlEntity> mGirlsList;
-    private OutListener outlistener;
     private MYListener myListener;
     public GirlsAdapter(Context context, List list) {
         this.mContext = context;
@@ -44,9 +43,6 @@ public class GirlsAdapter extends RecyclerView.Adapter<GirlsAdapter.ViewHolder> 
 
                 int position = holder.getAdapterPosition();
                 GirlEntity girlEntity = mGirlsList.get(position);
-//                if (outlistener != null) {
-//                    outlistener.onOut(girlEntity);
-//                }
                 if (myListener !=null){
                     myListener.onOutMy(girlEntity);
                 }
@@ -93,14 +89,6 @@ public class GirlsAdapter extends RecyclerView.Adapter<GirlsAdapter.ViewHolder> 
 
 
 
-    public interface OutListener {
-        void onOut(GirlEntity girlEntity);
-
-    }
-
-    public void setOutlistener(OutListener listener) {
-        this.outlistener = listener;
-    }
 
 
 }

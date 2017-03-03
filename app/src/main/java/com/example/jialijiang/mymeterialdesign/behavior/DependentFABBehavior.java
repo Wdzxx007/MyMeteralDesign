@@ -6,10 +6,7 @@ import android.support.design.widget.Snackbar;
 import android.util.AttributeSet;
 import android.view.View;
 
-/**
- * Created by yifeng on 16/9/20.
- *
- */
+
 public class DependentFABBehavior extends CoordinatorLayout.Behavior {
 
     public DependentFABBehavior(Context context, AttributeSet attrs) {

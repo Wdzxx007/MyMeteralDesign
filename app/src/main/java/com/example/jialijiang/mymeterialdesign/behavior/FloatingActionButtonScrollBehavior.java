@@ -7,9 +7,7 @@ import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.View;
 
-/**
- * Created by loonggg on 2016/6/22.
- */
+
 public class FloatingActionButtonScrollBehavior extends FloatingActionButton.Behavior {
     public FloatingActionButtonScrollBehavior(Context context, AttributeSet attrs) {
         super();
