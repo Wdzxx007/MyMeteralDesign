@@ -31,6 +31,7 @@ import java.util.Random;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, GirlsAdapter.MYListener {
+    private long exitTime = 0;
     private CircleImageView circleImageView;
     private Toolbar mToolbar;
     private FloatingActionButton fab;
@@ -60,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mDrawerLayout = (DrawerLayout) findViewById(R.id.dl_main);
         mNavigationView = (NavigationView) findViewById(R.id.nv_left);
         mRecyclerView = (RecyclerView) findViewById(R.id.rv_main);
-        imgSearch = (ImageView)findViewById(R.id.img_search);
+        imgSearch = (ImageView) findViewById(R.id.img_search);
         imgSearch.setOnClickListener(this);
         mRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.srl_main);
 
@@ -214,7 +215,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 snackbar.show();
                 break;
             case R.id.img_search:
-                Toast.makeText(MainActivity.this,"a",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "a", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
@@ -222,9 +223,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onOutMy(GirlEntity girlEntity) {
-        myGirlEntity = girlEntity;
         Intent intent = new Intent(MainActivity.this, GirlsActivity.class);
         intent.putExtra(Commomd.GIRLSENTITY, girlEntity);
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (System.currentTimeMillis() - exitTime > 2000) {
+            Toast.makeText(MainActivity.this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+            exitTime = System.currentTimeMillis();
+        }else {
+            finish();
+            System.exit(0);
+        }
     }
 }

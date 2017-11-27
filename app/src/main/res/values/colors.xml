@@ -6,4 +6,41 @@
     <color name="colorYellow">#FFFF00</color>
     <color name="colorGreen">#238E23</color>
     <color name="colorBrown">#784221</color>
+    <color name="color3F3F3F">#3f3f3f</color>
+    <color name="color3A3A3A">#3A3A3A</color>
+    <color name="color868686">#868686</color>
+    <color name="black_null_background">#4d000000</color>
+    <!--规范字体颜色-->
+    <color name="deeply_black_font">#444444</color>
+    <color name="big_black_font">#000000</color>
+    <color name="big_gray">#e1e1e1</color>
+    <color name="black_font">#676767</color>
+    <color name="light_black_font">#676767</color>
+    <color name="dynamic_gray_font">#949494</color>
+    <color name="share_dialog_background">#f4f4f4</color>
+    <color name="open_light_black">#21676767</color>
+    <color name="gray_text_hint">#ffc7c7cd</color>
+    <color name="title_bottom_red">#bf4940</color>
+    <color name="title_top_red">#f95f53</color>
+    <!--纯白色-->
+    <color name="white">#ffffffff</color>
+    <!--分割线-->
+    <color name="dividing_line">#E1E1E1</color>
+    <!--底色-->
+    <color name="background_color">#fff1f1f1</color>
+    <!--强调色-->
+    <color name="big_light_red">#fffd5353</color>
+    <!--主题色-->
+    <color name="light_red">#fff95f53</color>
+    <!--主题色-->
+    <color name="open_light_red">#23f95f53</color>
+    <color name="open_red">#13f95f53</color>
+    <!--辅色-->
+    <color name="red">#ffff7357</color>
+    <!--辅色-->
+    <color name="blue">#ff4ab1fa</color>
+    <!--辅色-->
+    <color name="yellow">#ffffb54c</color>
+    <!--深灰-->
+    <color name="gray_line">#D5D5D5</color>
 </resources>

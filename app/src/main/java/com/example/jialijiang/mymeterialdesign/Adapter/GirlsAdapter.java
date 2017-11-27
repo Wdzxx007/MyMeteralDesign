@@ -46,10 +46,6 @@ public class GirlsAdapter extends RecyclerView.Adapter<GirlsAdapter.ViewHolder> 
                 if (myListener !=null){
                     myListener.onOutMy(girlEntity);
                 }
-//                Intent intent = new Intent(mContext, GirlsActivity.class);
-//                intent.putExtra(Commomd.NAME, girlEntity.getName());
-//                intent.putExtra(Commomd.IMAGE, girlEntity.getImageId());
-//                mContext.startActivity(intent);
             }
         });
         return holder;
@@ -86,7 +82,6 @@ public class GirlsAdapter extends RecyclerView.Adapter<GirlsAdapter.ViewHolder> 
     public void setMyListener(MYListener myListener){
         this.myListener = myListener;
     }
-
 
 
 
