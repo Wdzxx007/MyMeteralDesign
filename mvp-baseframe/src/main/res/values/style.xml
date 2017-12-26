@@ -1,0 +1,51 @@
+<resources>
+
+    <!--1px灰色竖线-->
+    <style name="gray_line_1px_vertical">
+        <item name="android:layout_width">1px</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/gray_line</item>
+    </style>
+    <!--1px白色竖线-->
+    <style name="white_line_1px_vertical">
+        <item name="android:layout_width">1px</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/white_text</item>
+    </style>
+    <!--1px黑色竖线-->
+
+    <!--1px红色竖线-->
+    <style name="red_line_1px_vertical">
+        <item name="android:layout_width">1px</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/red_text</item>
+    </style>
+
+    <!--1px分割横线-->
+    <style name="spacing_line_1px_horizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:background">@color/dividing_line</item>
+    </style>
+
+    <!--1px灰色横线-->
+    <style name="gray_line_1px_horizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:background">@color/gray_line</item>
+    </style>
+    <!--1px灰色分割横线-->
+    <style name="gray_split_line_1px_horizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:background">@color/split_line</item>
+    </style>
+
+
+    <style name="noTitleDialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <color name="red_text">#F46464</color>
+</resources>

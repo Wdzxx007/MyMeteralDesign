@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--分割线-->
+    <color name="dividing_line">#E1E1E1</color>
+    <color name="split_line">#E1E1E1</color>
+    <color name="white_text">#ffffffff</color>
+    <color name="white_background">#F1F1F1</color>
+    <color name="gray_line">#ffe7e7e7</color>
+    <color name="redText">#F46464</color>
+    <!--辅色-->
+    <color name="blue">#ff4ab1fa</color>
+    <color name="remain_start_red">#F95F53</color>
+    <color name="text_deep_black">#333333</color>
+    <color name="null_background">#00000000</color>
+    <color name="black_background">#b02d2e3d</color>
+</resources>

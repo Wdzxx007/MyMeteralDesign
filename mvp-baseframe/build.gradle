@@ -1,0 +1,191 @@
+apply plugin: 'com.android.library'
+apply plugin:'com.jakewharton.butterknife'
+apply plugin: 'com.neenbedankt.android-apt'// 根节点添加
+//apply plugin: 'com.github.dcendents.android-maven'
+//apply plugin: 'com.jfrog.bintray'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+    //tencent webview
+
+    compile 'com.android.support:appcompat-v7:22.2.1'
+
+    //material_design
+    compile 'com.android.support:recyclerview-v7:22.2.1'
+    compile 'com.android.support:design:22.2.1'
+    compile 'com.android.support:cardview-v7:22.2.1'
+    compile 'com.android.support:palette-v7:22.2.1'
+    //rxJava
+    compile "io.reactivex.rxjava2:rxandroid:2.0.1"
+    compile "io.reactivex.rxjava2:rxjava:2.1.1"
+    //rx
+    compile 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
+    compile ('com.trello.rxlifecycle2:rxlifecycle:2.1.0'){
+        exclude module:'appcompat-v7'
+    }
+    compile ('com.trello.rxlifecycle2:rxlifecycle-components:2.1.0'){
+        exclude group:'com.android.support'
+    }
+//    compile ('com.trello:rxlifecycle:0.4.0'){
+//        exclude module:'rxbinding'
+//    } // RxLifecycle管理Rx的生命周期
+//    compile ('com.trello:rxlifecycle-components:0.4.0'){
+//        exclude module:'rxjava'
+//        exclude module:'appcompat-v7'
+//    } // RxLifecycle组件
+//
+//    // RxBinding
+//    compile 'com.jakewharton.rxbinding:rxbinding:0.4.0'
+//    compile ('com.jakewharton.rxbinding:rxbinding-appcompat-v7:0.4.0'){
+//        exclude module:'appcompat-v7'
+//    }
+//    compile ('com.jakewharton.rxbinding:rxbinding-design:0.4.0'){
+//        exclude module:'design'
+//    }
+
+    //network
+    compile 'com.google.code.gson:gson:2.6.1'
+    compile ('com.squareup.retrofit2:retrofit:2.0.2'){
+        exclude module:'okhttp'
+    }
+    compile 'com.squareup.retrofit2:converter-scalars:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+    compile ('com.squareup.retrofit2:adapter-rxjava2:2.3.0'){
+        exclude module:'rxjava'
+    }
+
+    compile 'com.squareup.okhttp3:okhttp:3.2.0'
+    compile ('com.squareup.okhttp3:logging-interceptor:3.8.1'){
+        exclude module:'okhttp'
+    }
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'
+
+    //util
+    compile 'com.jakewharton:butterknife:8.4.0'
+    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+
+    //other
+    compile 'com.orhanobut:logger:1.15'
+
+    //widget
+    compile ('com.miguelcatalan:materialsearchview:1.4.0'){
+        exclude module:'appcompat-v7'
+        exclude module:'design'
+    }
+
+    //dagger2
+    compile 'com.google.dagger:dagger:2.0.2'
+    apt 'com.google.dagger:dagger-compiler:2.0.2'
+    //添加缺失的部分javax注解
+    provided 'org.glassfish:javax.annotation:10.0-b28'
+
+    //canary
+    debugCompile 'com.github.moduth:blockcanary-android:1.2.1'
+    //releaseCompile 'com.github.moduth:blockcanary-no-op:1.2.1'
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
+}
+
+// 根节点添加
+def siteUrl = 'https://github.com/laulee/mvp-retrofit2.0-rxjava'    // project homepage
+def gitUrl = 'https://github.com/laulee/mvp-retrofit2.0-rxjava.git' // project git
+group = "com.laulee"
+version="1.0.0"
+
+//install {
+//    repositories.mavenInstaller {
+//        // This generates POM.xml with proper parameters
+//        pom {
+//            project {
+//                packaging 'aar'
+//                name 'MVP-BaseFrame For Android'                                   // #修改# // 标题
+//                url siteUrl
+//                // Set your license
+//                licenses {
+//                    license {
+//                        name 'The Apache Software License, Version 2.0'
+//                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+//                    }
+//                }
+//                developers {
+//                    developer {
+//                        id 'lee'                                           // #修改# // 你的userid，昵称
+//                        name 'laulee'                                       // #修改# // 用户名
+//                        email 'lauleedt@gmail.com'                               // #修改# // 邮箱
+//                    }
+//                }
+//                scm {
+//                    connection gitUrl
+//                    developerConnection gitUrl
+//                    url siteUrl
+//                }
+//            }
+//        }
+//    }
+//}
+//
+//task sourcesJar(type: Jar) {
+//    from android.sourceSets.main.java.srcDirs
+//    classifier = 'sources'
+//}
+//
+//task javadoc(type: Javadoc) {
+//    source = android.sourceSets.main.java.srcDirs
+//    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+//}
+//
+//task javadocJar(type: Jar, dependsOn: javadoc) {
+//    classifier = 'javadoc'
+//    from javadoc.destinationDir
+//}
+//
+//artifacts {
+//    archives javadocJar
+//    archives sourcesJar
+//}
+//
+//Properties properties = new Properties()
+//properties.load(project.rootProject.file('local.properties').newDataInputStream())
+//bintray {
+//    user = properties.getProperty("bintray.user")
+//    key = properties.getProperty("bintray.apikey")
+//    // 上面两个 user和key 需要留意一下，在local.properites 里面配置的
+//    configurations = ['archives']
+//    pkg {
+//        repo = "mvp-baseframe"
+//        name = "mvp-retrofit2.0-rxjava"                                                 // #修改# //  在 jcenter 上面的项目名字
+//        websiteUrl = siteUrl
+//        vcsUrl = gitUrl
+//        licenses = ["Apache-2.0"]
+//        publish = true
+//    }
+//}
