@@ -23,6 +23,7 @@
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
     <application
+        android:name=".app.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -32,17 +33,23 @@
             android:launchMode="standard"
             android:screenOrientation="portrait"
             >
+        </activity>
+        <activity
+            android:name=".ui.GirlsActivity"
+            android:launchMode="standard"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".ui.FriendsActivity"
+            android:launchMode="standard"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.WelcomePage"
+            android:launchMode="standard"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".GirlsActivity"
-            android:launchMode="standard"
-            android:screenOrientation="portrait">
-
         </activity>
     </application>
 

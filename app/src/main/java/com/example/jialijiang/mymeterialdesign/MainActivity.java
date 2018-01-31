@@ -28,8 +28,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.jialijiang.mymeterialdesign.Adapter.GirlsAdapter;
-import com.example.jialijiang.mymeterialdesign.Entity.GirlEntity;
+import com.example.jialijiang.mymeterialdesign.adapter.GirlsAdapter;
+import com.example.jialijiang.mymeterialdesign.entity.GirlEntity;
+import com.example.jialijiang.mymeterialdesign.ui.FriendsActivity;
+import com.example.jialijiang.mymeterialdesign.ui.GirlsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -95,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         /**设置MenuItem默认选中项**/
         mNavigationView.getMenu().getItem(0).setChecked(true);
         //给NavigationView设置item选择事件
-        mNavigationView.setCheckedItem(R.id.nav_call);
+        mNavigationView.setCheckedItem(R.id.nav_girl);
         mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
@@ -111,37 +113,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                snackbar.setActionTextColor(Color.RED);
 //                snackbar.show();
                 switch (item.getItemId()) {
-                    case R.id.nav_call:
-                        // 检查是否获得了权限（Android6.0运行时权限）
-                      if( ContextCompat.checkSelfPermission( MainActivity.this, android.Manifest.permission.CALL_PHONE )!= PackageManager.PERMISSION_GRANTED ) {
-                          // 没有获得授权，申请授权
-                          if( ActivityCompat.shouldShowRequestPermissionRationale( MainActivity.this,
-                                                                                   Manifest.permission.CALL_PHONE ) ){
-                              // 返回值：
-                              //                          如果app之前请求过该权限,被用户拒绝, 这个方法就会返回true.
-                              //                          如果用户之前拒绝权限的时候勾选了对话框中”Don’t ask again”的选项,那么这个方法会返回false.
-                              //                          如果设备策略禁止应用拥有这条权限, 这个方法也返回false.
-                              // 弹窗需要解释为何需要该权限，再次请求授权
-                              Toast.makeText(MainActivity.this, "请授权！", Toast.LENGTH_LONG).show();
-
-                              // 帮跳转到该应用的设置界面，让用户手动授权
-                              Intent intent = new Intent( Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                              Uri uri = Uri.fromParts( "package", getPackageName(), null);
-                              intent.setData(uri);
-                              startActivity(intent);
-                          }else {
-                              // 不需要解释为何需要该权限，直接请求授权
-                              ActivityCompat.requestPermissions(MainActivity.this,
-                                                                new String[]{Manifest.permission.CALL_PHONE},
-                                                                MY_PERMISSIONS_REQUEST_CALL_PHONE);
-                          }
-                      }else {
-                          // 已经获得授权，可以打电话
-                          CallPhone();
-                      }
+                    case R.id.nav_task:
+                        Toast.makeText(MainActivity.this, "收藏被点击了", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.nav_girl:
+                        Toast.makeText(MainActivity.this, "妹子被点击了", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.nav_friends:
-                        Toast.makeText(MainActivity.this, "段子被点击了", Toast.LENGTH_SHORT).show();
+                     Intent intent = new Intent(MainActivity.this, FriendsActivity.class );
+                     startActivity( intent );
                         break;
                     case R.id.nav_location:
                         Toast.makeText(MainActivity.this, "新闻被点击了", Toast.LENGTH_SHORT).show();
@@ -149,8 +129,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     case R.id.nav_mail:
                         Toast.makeText(MainActivity.this, "本地被点击了", Toast.LENGTH_SHORT).show();
                         break;
-                    case R.id.nav_task:
-                        Toast.makeText(MainActivity.this, "收藏被点击了", Toast.LENGTH_SHORT).show();
+                    case R.id.nav_call:
+                        // 检查是否获得了权限（Android6.0运行时权限）
+                        if( ContextCompat.checkSelfPermission( MainActivity.this, android.Manifest.permission.CALL_PHONE )!= PackageManager.PERMISSION_GRANTED ) {
+                            // 没有获得授权，申请授权
+                            if( ActivityCompat.shouldShowRequestPermissionRationale( MainActivity.this,
+                                                                                     Manifest.permission.CALL_PHONE ) ){
+                                // 返回值：
+                                //                          如果app之前请求过该权限,被用户拒绝, 这个方法就会返回true.
+                                //                          如果用户之前拒绝权限的时候勾选了对话框中”Don’t ask again”的选项,那么这个方法会返回false.
+                                //                          如果设备策略禁止应用拥有这条权限, 这个方法也返回false.
+                                // 弹窗需要解释为何需要该权限，再次请求授权
+                                Toast.makeText(MainActivity.this, "请授权！", Toast.LENGTH_LONG).show();
+
+                                // 帮跳转到该应用的设置界面，让用户手动授权
+                                Intent intent1 = new Intent( Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                                Uri uri = Uri.fromParts( "package", getPackageName(), null);
+                                intent1.setData(uri);
+                                startActivity(intent1);
+                            }else {
+                                // 不需要解释为何需要该权限，直接请求授权
+                                ActivityCompat.requestPermissions(MainActivity.this,
+                                                                  new String[]{Manifest.permission.CALL_PHONE},
+                                                                  MY_PERMISSIONS_REQUEST_CALL_PHONE);
+                            }
+                        }else {
+                            // 已经获得授权，可以打电话
+                            CallPhone();
+                        }
                         break;
                 }
                 return true;

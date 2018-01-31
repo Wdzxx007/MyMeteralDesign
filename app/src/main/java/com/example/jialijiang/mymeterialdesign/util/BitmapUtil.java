@@ -25,7 +25,7 @@ import java.util.Date;
 public class BitmapUtil {
     //private String saveFilePath = Environment.getExternalStorageDirectory( ) + "/DCIM/camera";
     public static String saveFilePath = Environment.getExternalStorageDirectory( ) +
-                                        "/DCIM/beepLoan";
+                                        "/DCIM/MyMeyeralDesign";
 
     //获取文件保存路径
     public static File getSaveFile( String saveFilePath ) {
@@ -80,7 +80,7 @@ public class BitmapUtil {
             }
             FileOutputStream outputStream = new FileOutputStream( jpgFile );
             //将图片写入文件
-            bitmap.compress( Bitmap.CompressFormat.JPEG, 90, outputStream );
+            bitmap.compress( Bitmap.CompressFormat.PNG, 100, outputStream );
             outputStream.flush( );
             outputStream.close( );
             if( isRecycle )
@@ -169,7 +169,7 @@ public class BitmapUtil {
                 }
                 String[] imageData = { MediaStore.Images.Media.DATA };
                 Cursor cursor = context.getContentResolver( ).query( imageUri, imageData, null,
-                                                                     null, null );
+                        null, null );
                 if( cursor == null ) {
                     return "";
                 }
@@ -196,7 +196,7 @@ public class BitmapUtil {
      */
     public static File compressBitmap( File dst, int compressSize ) {
         if( null != dst && dst.exists( ) ) {
-            BitmapFactory.Options opts = null;
+            BitmapFactory.Options opts;
             opts = new BitmapFactory.Options( );
             opts.inJustDecodeBounds = true;
             int width = opts.outWidth / compressSize;
@@ -284,7 +284,7 @@ public class BitmapUtil {
 
         if( upperBound < lowerBound ) {
             // return the larger one when there is no overlapping zone.
-            return upperBound;
+            return lowerBound;
         }
 
         if( ( maxNumOfPixels == -1 ) && ( minSideLength == -1 ) ) {
@@ -307,7 +307,7 @@ public class BitmapUtil {
         try {
             ExifInterface exifInterface = new ExifInterface( path );
             int orientation = exifInterface.getAttributeInt( ExifInterface.TAG_ORIENTATION,
-                                                             ExifInterface.ORIENTATION_NORMAL );
+                    ExifInterface.ORIENTATION_NORMAL );
             switch( orientation ) {
                 case ExifInterface.ORIENTATION_ROTATE_90:
                     degree = 90;
@@ -338,7 +338,7 @@ public class BitmapUtil {
         matrix.postRotate( angle );
         // 创建新的图片
         Bitmap resizedBitmap = Bitmap.createBitmap( bitmap, 0, 0, bitmap.getWidth( ),
-                                                    bitmap.getHeight( ), matrix, true );
+                bitmap.getHeight( ), matrix, true );
         return resizedBitmap;
     }
 
@@ -364,7 +364,7 @@ public class BitmapUtil {
         int size = w > h ? h : w;
         float pixelSize = pixelW > pixelH ? pixelH : pixelW;
 
-        int be = 1;
+        int be;
         if( size > pixelSize ) {
             be = (int) ( newOpts.outWidth / pixelSize );
         } else {
@@ -377,6 +377,6 @@ public class BitmapUtil {
         newOpts.inPurgeable = true;
         newOpts.inJustDecodeBounds = false;
         return BitmapFactory.decodeByteArray( os.toByteArray( ), 0, os.toByteArray( ).length,
-                                              newOpts );
+                newOpts );
     }
 }

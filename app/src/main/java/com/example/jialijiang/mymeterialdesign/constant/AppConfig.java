@@ -4,8 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 
-import com.example.jialijiang.mymeterialdesign.Entity.CompanyEntity;
-import com.example.jialijiang.mymeterialdesign.Entity.UserInfoEntity;
+import com.example.jialijiang.mymeterialdesign.entity.CompanyEntity;
+import com.example.jialijiang.mymeterialdesign.entity.UserInfoEntity;
 import com.example.jialijiang.mymeterialdesign.MainActivity;
 import com.example.jialijiang.mymeterialdesign.util.SystemUtil;
 

@@ -1,21 +1,85 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+
+def keystoreFile = rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystoreFile))
 
 android {
+    //编译SDK
     compileSdkVersion 24
+    //build tool 版本
     buildToolsVersion "25.0.2"
+    //签名配置
+    signingConfigs {
+        release {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+        }
+    }
     defaultConfig {
+        //应用包名 唯一标示
         applicationId "com.example.jialijiang.mymeterialdesign"
-        minSdkVersion 21
-        targetSdkVersion 24
-        versionCode 1
-        versionName "1.0"
+        //最小支持SDK
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        //目标SDK
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        //版本号
+        versionCode rootProject.ext.android["versionCode"]
+        //版本名字
+        versionName rootProject.ext.android["versionName"]
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    //编译类型
     buildTypes {
         release {
+            //是否混淆
             minifyEnabled false
+            //资源压缩
+            shrinkResources false
+            //混淆文件
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //签名所用的配置文件
+            signingConfig signingConfigs.release
+            // dex突破65535的限制
+            multiDexEnabled true
         }
+        debug {
+            //版本名字加上后缀
+            versionNameSuffix "-debug"
+            minifyEnabled false
+
+            //签名所用的配置文件
+            signingConfig signingConfigs.release
+        }
+        /**
+         * DEX文件构建属性配置（加快构建速度）
+         */
+        //preDexLibraries声明是否预先编译依赖库，从而加快构建速度，
+        // 实质是通过延时清除已生成的依赖库的构建文件，从而提高构建速度，根据使用情况合理配置。
+        //maxProcessCount设置进程运行过程中可以使用的最大线程数。默认值为4。
+        //javaMaxHeapSize设置DEX编译器的最大堆大小，堆或者栈都是用于存放暂时不用的垃圾，
+        // 当内存不足时，垃圾回收机制会清除过时的缓存，堆大小决定垃圾清除的频率，影响着构建的速度
+        dexOptions {
+            preDexLibraries true
+            maxProcessCount 4
+            javaMaxHeapSize "4g"
+            jumboMode true
+        }
+    }
+    sourceSets { main { assets.srcDirs = ['src/main/assets', 'src/main/assets/'] } }
+}
+
+
+
+
+
+allprojects {
+    repositories {
+        mavenCentral()
     }
 }
 
@@ -34,4 +98,11 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:2.1.0'
     testCompile 'junit:junit:4.12'
     compile files('libs/xUtils-2.6.14.jar')
+    compile rootProject.ext.dependencies["appcompat-v7"]
+    compile rootProject.ext.dependencies["dagger"]
+    compile rootProject.ext.dependencies["dagger-compiler"]
+    compile rootProject.ext.dependencies["butterknife"]
+    compile rootProject.ext.dependencies["butterknife-compiler"]
+    //添加缺失的部分javax注解
+    provided 'org.glassfish:javax.annotation:10.0-b28'
 }

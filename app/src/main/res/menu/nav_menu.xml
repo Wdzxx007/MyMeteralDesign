@@ -2,14 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_call"
+            android:id="@+id/nav_girl"
             android:checked="true"
-            android:icon="@drawable/nav_call"
+            android:icon="@drawable/nav_friends"
             android:title="妹纸" />
         <item
             android:id="@+id/nav_friends"
             android:icon="@drawable/nav_friends"
-            android:title="段子" />
+            android:title="朋友" />
         <item
             android:id="@+id/nav_location"
             android:icon="@drawable/nav_location"
@@ -22,5 +22,9 @@
             android:id="@+id/nav_task"
             android:icon="@drawable/nav_task"
             android:title="收藏" />
+        <item
+            android:id="@+id/nav_call"
+            android:icon="@drawable/nav_call"
+            android:title="电话" />
     </group>
 </menu>
