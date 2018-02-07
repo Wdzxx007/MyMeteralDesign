@@ -7,11 +7,15 @@ import java.util.Map;
 
 import io.reactivex.Observable;
 import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PartMap;
+import retrofit2.http.Streaming;
+import retrofit2.http.Url;
 
 /**
  * system模块接口
@@ -69,12 +73,6 @@ public interface SystemApi {
     Observable<ResponseBean<Object>> doIdentityVerification(
             @PartMap Map<String, RequestBody> files, @PartMap Map<String, String> params );
 
-    //    @POST("api/identityVerification")
-    //    @Multipart
-    //    Observable<ResponseBean<Object>> doIdentityVerification( @Part MultipartBody.Part multi_f,
-    //            @Part MultipartBody.Part multi_o, @Part MultipartBody.Part multipart_h,
-    //            @PartMap Map<String, String> params );
-
     //个人中心信息
 //    @POST("api/personal")
 //    @FormUrlEncoded
@@ -97,4 +95,8 @@ public interface SystemApi {
 //    @FormUrlEncoded
 //    Observable<ResponseBean<CertificationEntity>> certification(
 //            @FieldMap Map<String, String> params );
+
+    @Streaming
+    @GET
+    Observable<ResponseBody> download(@Url String url);
 }

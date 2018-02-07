@@ -10,9 +10,9 @@ import dagger.Component;
  * Created by zhuxingxing on 18/1/25.
  */
 @ActivityScope
-@Component(modules = ActivityModule.class,dependencies = AppComponent.class)
+@Component(modules = ActivityModule.class, dependencies = AppComponent.class)
 public interface ActivityComponent {
 
-   void inject (FriendsActivity friendsActivity);
+    void inject( FriendsActivity friendsActivity );
 
 }

@@ -32,6 +32,7 @@ import com.example.jialijiang.mymeterialdesign.adapter.GirlsAdapter;
 import com.example.jialijiang.mymeterialdesign.entity.GirlEntity;
 import com.example.jialijiang.mymeterialdesign.ui.FriendsActivity;
 import com.example.jialijiang.mymeterialdesign.ui.GirlsActivity;
+import com.example.jialijiang.mymeterialdesign.ui.SetActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -128,6 +129,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         break;
                     case R.id.nav_mail:
                         Toast.makeText(MainActivity.this, "本地被点击了", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.nav_version:
+                        Intent intent2 = new Intent( MainActivity.this,SetActivity.class );
+                        startActivity( intent2 );
                         break;
                     case R.id.nav_call:
                         // 检查是否获得了权限（Android6.0运行时权限）

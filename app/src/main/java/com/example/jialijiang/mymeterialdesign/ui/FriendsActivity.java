@@ -1,5 +1,6 @@
 package com.example.jialijiang.mymeterialdesign.ui;
 
+import android.view.View;
 import android.widget.Button;
 
 import com.example.jialijiang.mymeterialdesign.R;
@@ -24,6 +25,8 @@ public class FriendsActivity extends RxBaseActivity<FriendPresenter>
 
     @BindView(R.id.btn_getAuth)
     Button btnGetAuth;
+    @BindView(R.id.btn_down)
+    Button btnDown;
 
     @Override
     protected void initParams() {
@@ -56,8 +59,20 @@ public class FriendsActivity extends RxBaseActivity<FriendPresenter>
         ToastUtil.showToast( "验证码已发送" );
     }
 
-    @OnClick(R.id.btn_getAuth)
-    public void onViewClicked() {
-        mPresenter.getMobilePhoneAuth( );
+    @OnClick({R.id.btn_getAuth,R.id.btn_down})
+    public void onViewClicked(View view) {
+    switch( view.getId() ){
+        case R.id.btn_getAuth:
+            mPresenter.getMobilePhoneAuth( );
+            break;
+        case R.id.btn_down:
+            ToastUtil.showToast( "a" );
+            break;
     }
+
+    }
+
+
+
+
 }
