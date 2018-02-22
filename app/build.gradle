@@ -90,6 +90,9 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile project(':mvp-baseframe')
+    compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.3'//一个开源gif控件
+    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4'
+    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.4'//没有使用特殊Header，可以不加这行
     compile 'com.orhanobut:logger:1.15'
     compile 'com.android.support:appcompat-v7:24.1.0'
     compile 'org.litepal.android:core:1.4.1'

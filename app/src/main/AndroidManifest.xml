@@ -34,11 +34,11 @@
         <activity
             android:name=".MainActivity"
             android:launchMode="standard"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.GirlsActivity"
             android:launchMode="standard"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.FriendsActivity"
             android:launchMode="standard"
@@ -53,7 +53,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.SetActivity"></activity>
+        <activity android:name=".ui.SetActivity" />
+        <activity android:name=".ui.GirlListActivity"
+            android:launchMode="standard"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

@@ -31,6 +31,7 @@ import android.widget.Toast;
 import com.example.jialijiang.mymeterialdesign.adapter.GirlsAdapter;
 import com.example.jialijiang.mymeterialdesign.entity.GirlEntity;
 import com.example.jialijiang.mymeterialdesign.ui.FriendsActivity;
+import com.example.jialijiang.mymeterialdesign.ui.GirlListActivity;
 import com.example.jialijiang.mymeterialdesign.ui.GirlsActivity;
 import com.example.jialijiang.mymeterialdesign.ui.SetActivity;
 
@@ -118,7 +119,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Toast.makeText(MainActivity.this, "收藏被点击了", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.nav_girl:
-                        Toast.makeText(MainActivity.this, "妹子被点击了", Toast.LENGTH_SHORT).show();
+                        Intent intent2 = new Intent(MainActivity.this, GirlListActivity.class );
+                        startActivity( intent2 );
                         break;
                     case R.id.nav_friends:
                      Intent intent = new Intent(MainActivity.this, FriendsActivity.class );
@@ -131,8 +133,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Toast.makeText(MainActivity.this, "本地被点击了", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.nav_version:
-                        Intent intent2 = new Intent( MainActivity.this,SetActivity.class );
-                        startActivity( intent2 );
+                        Intent intent3 = new Intent( MainActivity.this,SetActivity.class );
+                        startActivity( intent3 );
                         break;
                     case R.id.nav_call:
                         // 检查是否获得了权限（Android6.0运行时权限）
