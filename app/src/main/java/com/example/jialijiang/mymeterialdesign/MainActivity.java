@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         circleImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "头部图片被点击啦", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "头部图片被点击啦，测试", Toast.LENGTH_SHORT).show();
             }
         });
         Resources resource = (Resources) getBaseContext().getResources();
