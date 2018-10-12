@@ -37,13 +37,13 @@ android {
     buildTypes {
         release {
             //是否混淆
-            minifyEnabled false
+            minifyEnabled true
             //资源压缩
-            shrinkResources false
+            shrinkResources true
             //混淆文件
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             //签名所用的配置文件
-            signingConfig signingConfigs.release
+//            signingConfig signingConfigs.release
             // dex突破65535的限制
             multiDexEnabled true
         }
@@ -53,7 +53,7 @@ android {
             minifyEnabled false
 
             //签名所用的配置文件
-            signingConfig signingConfigs.release
+//            signingConfig signingConfigs.release
         }
         /**
          * DEX文件构建属性配置（加快构建速度）
@@ -85,7 +85,6 @@ allprojects {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })

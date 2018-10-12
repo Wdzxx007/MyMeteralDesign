@@ -55,8 +55,8 @@ public class SetActivity extends BaseActivity {
             return;
         }
         new AppDownLoadHelper.Builder( )
-                .setPath( SDCardUtil.getLogCacheDir( App.getContext( ) ) + "/mifengjucai.apk" )
-                .setTag( "xx" ).setUrl( "https://www.beejc.cn/web/bee/apk/1.9.0/蜜蜂聚财_huawei.apk" )
+                .setPath( SDCardUtil.getLogCacheDir( App.getContext( ) ) + "/51kami.apk" )
+                .setTag( "xx" ).setUrl( "https://km.51kirin.com/android/51kami_qiling_1.5.apk" )
                 .setDownLoadListener( new AppProgressListener( ) {
                     @Override
                     public void onStart() {
@@ -79,7 +79,7 @@ public class SetActivity extends BaseActivity {
                         progressState.setText( "完成" );
                         Log.i( "tag", "========" + Thread.currentThread( ).getName( ) );
                         File file = new File( SDCardUtil.getLogCacheDir(
-                                App.getContext( ) ) + "/mifengjucai.apk" );
+                                App.getContext( ) ) + "/51kami.apk" );
                         Intent intent = new Intent( Intent.ACTION_VIEW );
                         intent.addFlags( Intent.FLAG_ACTIVITY_NEW_TASK );
                         intent.setDataAndType( Uri.fromFile( file ),

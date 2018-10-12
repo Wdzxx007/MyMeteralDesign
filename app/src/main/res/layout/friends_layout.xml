@@ -16,6 +16,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Download"/>
+  <Button
+        android:id="@+id/btn_getUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="联系人"/>
+  <Button
+        android:id="@+id/btn_getjilu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="通话记录"/>
 
 
 </LinearLayout>

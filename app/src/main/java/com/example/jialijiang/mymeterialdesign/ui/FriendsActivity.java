@@ -1,5 +1,6 @@
 package com.example.jialijiang.mymeterialdesign.ui;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
@@ -14,6 +15,7 @@ import com.laulee.baseframe.base.RxBaseActivity;
 import com.laulee.baseframe.utils.ToastUtil;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -27,10 +29,14 @@ public class FriendsActivity extends RxBaseActivity<FriendPresenter>
     Button btnGetAuth;
     @BindView(R.id.btn_down)
     Button btnDown;
+    @BindView(R.id.btn_getUser)
+    Button btnGetUser;
+    @BindView(R.id.btn_getjilu)
+    Button btnGetjilu;
 
     @Override
     protected void initParams() {
-        setTitle( "我的朋友" );
+        setTitle("我的朋友");
     }
 
     @Override
@@ -40,39 +46,43 @@ public class FriendsActivity extends RxBaseActivity<FriendPresenter>
 
     @Override
     protected void inject() {
-        DaggerActivityComponent.builder( ).appComponent( GlobalAppComponent.getAppComponent( ) )
-                .activityModule( new ActivityModule( this ) ).build( ).inject( this );
+        DaggerActivityComponent.builder().appComponent(GlobalAppComponent.getAppComponent())
+                .activityModule(new ActivityModule(this)).build().inject(this);
     }
 
     @Override
-    public void showError( String message ) {
-        ToastUtil.showToast( message );
+    public void showError(String message) {
+        ToastUtil.showToast(message);
     }
 
     @Override
-    public void refreshView( UserInfoEntity userInfoEntity ) {
+    public void refreshView(UserInfoEntity userInfoEntity) {
 
     }
 
     @Override
     public void getAuthCodeSuccess() {
-        ToastUtil.showToast( "验证码已发送" );
+        ToastUtil.showToast("验证码已发送");
     }
 
-    @OnClick({R.id.btn_getAuth,R.id.btn_down})
+    @OnClick({R.id.btn_getAuth, R.id.btn_down, R.id.btn_getUser, R.id.btn_getjilu})
     public void onViewClicked(View view) {
-    switch( view.getId() ){
-        case R.id.btn_getAuth:
-            mPresenter.getMobilePhoneAuth( );
-            break;
-        case R.id.btn_down:
-            ToastUtil.showToast( "a" );
-            break;
-    }
+        switch (view.getId()) {
+            case R.id.btn_getAuth:
+                mPresenter.getMobilePhoneAuth();
+                break;
+            case R.id.btn_down:
+                ToastUtil.showToast("a");
+                break;
+            case R.id.btn_getUser:
+
+                break;
+            case R.id.btn_getjilu:
+
+                break;
+        }
 
     }
-
-
 
 
 }
