@@ -7,29 +7,36 @@
     <include layout="@layout/title_bar" />
 
     <TextView
-        android:padding="10dp"
-        android:gravity="center"
-        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="master" />
+
+    <TextView
         android:id="@+id/tv_app_version"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="appVersion" />
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="appVersion"
+        android:textSize="20sp" />
+
     <ProgressBar
         android:id="@+id/progress"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_marginTop="48dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp" />
 
     <TextView
         android:id="@+id/progress_text"
-        android:textAlignment="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textAlignment="center" />
+
     <TextView
         android:id="@+id/progress_state"
-        android:textAlignment="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textAlignment="center" />
 
 </LinearLayout>
