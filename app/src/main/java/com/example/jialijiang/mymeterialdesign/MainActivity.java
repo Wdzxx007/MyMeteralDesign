@@ -62,6 +62,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private List<GirlEntity> beautyList = new ArrayList<>();
     private GirlsAdapter mAdpter;
 
+    /**
+     *
+     * 这是个msater分支的修改
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
